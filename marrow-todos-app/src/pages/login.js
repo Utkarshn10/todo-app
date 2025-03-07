@@ -52,7 +52,7 @@ export default function LoginPage() {
         />
         <Button type="submit">Login</Button>
       </form>
-      <p className="mt-4">Don't have an account? <Link href="/register" className="text-black underline">Register</Link></p>
+      <p className="mt-4">Don&apos;t have an account? <Link href="/register" className="text-black underline">Register</Link></p>
     </div>
   );
 } 
