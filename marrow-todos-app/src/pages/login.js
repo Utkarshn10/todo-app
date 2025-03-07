@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { supabase } from "@/utils/supabase";
+import Link from 'next/link';
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -51,7 +52,7 @@ export default function LoginPage() {
         />
         <Button type="submit">Login</Button>
       </form>
-      <p className="mt-4">Don't have an account? <a href="/register" className="text-black underline">Register</a></p>
+      <p className="mt-4">Don't have an account? <Link href="/register" className="text-black underline">Register</Link></p>
     </div>
   );
 } 
