@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { supabase } from "@/utils/supabase";
+import Link from 'next/link';
 
 export default function RegisterPage() {
   const [email, setEmail] = useState("");
@@ -47,7 +48,7 @@ export default function RegisterPage() {
         />
         <Button type="submit">Register</Button>
       </form>
-      <p className="mt-4">Already have an account? <a href="/login" className="text-black underline">Login</a></p>
+      <p className="mt-4">Already have an account? <Link href="/login" className="text-black underline">Login</Link></p>
     </div>
   );
 } 
