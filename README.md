@@ -23,6 +23,7 @@ To run the application locally, follow these steps:
    npm run dev
    ```
 5. Open your browser and navigate to `http://localhost:3000` to view the application.
+6. Note: To use this app, you'll need Supabase credentials (URL and API key). You can create a free account on Supabase, and you'll receive these credentials upon setup.
 
 ## Assumptions and Design Decisions
 - The choice of Supabase as a backend was influenced by its ease of use and real-time capabilities, which are essential for a dynamic Todo List application.
