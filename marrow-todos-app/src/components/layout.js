@@ -7,11 +7,6 @@ export default function Layout({ children }) {
       <nav className="bg-black text-white p-4 shadow-md">
         <div className="container mx-auto flex justify-between items-center">
           <h1 className="text-xl font-bold">Todos App</h1>
-          <div className="flex gap-4">
-            <Link href="/todos" className="hover:text-indigo-200 transition-colors duration-200 ease-in-out">
-              Todos
-            </Link>
-          </div>
         </div>
       </nav>
 
