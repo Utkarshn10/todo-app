@@ -5,11 +5,12 @@ import { Input } from "../components/ui/input";
 import { Toaster, toast } from "sonner";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogTrigger, DialogContent, DialogArrow, DialogHeader, DialogDescription } from "../components/ui/dialog";
+import { supabase } from "@/utils/supabase";
 
 export default function TodosPage() {
   const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState("");
-  const [userID, setUserID] = useState("Utkarshn10"); 
+  const [userID, setUserID] = useState(null); // Initialize userID as null
   const [description, setDescription] = useState(""); 
   const [priority, setPriority] = useState("Medium"); 
   const [tags, setTags] = useState(""); 
@@ -22,6 +23,17 @@ export default function TodosPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [todosPerPage, setTodosPerPage] = useState(2);
   const [totalTodos, setTotalTodos] = useState(0);
+
+  useEffect(() => {
+    const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
+      if (session) {
+        setUserID(session.user.id); 
+      } else {
+        window.location.href = "/login";
+      }
+    });
+
+  }, []);
 
   const fetchTodos = useCallback(async () => {
     setLoading(true);
@@ -182,7 +194,8 @@ export default function TodosPage() {
     
     setNewTag("");
   };
-
+  
+  // Function to export all todos
   const exportTodos = async () => {
     try {
       const response = await fetch(`/api/todos?user_id=${userID}`);
@@ -251,7 +264,7 @@ export default function TodosPage() {
                   <h3 className="text-lg font-semibold">{todo.title}</h3>
                   <Badge className={`badge ${todo.priority} border`}>{todo.priority}</Badge>
                 </div>
-                <p>{todo.description}</p>
+                <p>{todo.description.length > 80 ? `${todo.description.substring(0, 80)}...` : todo.description}</p>
                 <div className="flex flex-wrap mt-2">
                   {todo.tags?.map((tag, index) => (
                     <Badge key={index} className="m-1">{tag}</Badge>
