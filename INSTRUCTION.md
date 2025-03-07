@@ -53,3 +53,4 @@ The application includes the following features for effective Todo management:
 
 ## Future Enhancements
 - Explore the possibility of integrating notifications for upcoming deadlines or reminders related to todos.
+- Implementing unit tests and integration tests to verify the functionality of the application
