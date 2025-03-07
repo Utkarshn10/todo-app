@@ -1,40 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# IMPLEMENTATION.md
 
-## Getting Started
+## Tech Stack
+The application is built using the following technologies:
+- **Next.js**: Utilized for both frontend and backend development, providing a seamless server-side rendering experience and efficient routing.
+- **Supabase**: Chosen as the database (Postgre).
+- **Shadcn**: Employed for UI components, enhancing the user interface with a modern design.
 
-First, run the development server:
+## How to Run the Application
+To run the application locally, follow these steps:
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd <repository-directory>
+   ```
+2. Install the necessary dependencies:
+   ```bash
+   npm install
+   ```
+3. Set up your environment variables by creating a `.env.local` file and adding the required Supabase credentials.
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+5. Open your browser and navigate to `http://localhost:3000` to view the application.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Assumptions and Design Decisions
+- The choice of Supabase as a backend was influenced by its ease of use and real-time capabilities, which are essential for a dynamic Todo List application.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features Implemented
+The application includes the following features for effective Todo management:
+1. **Todo Management**
+   - Create new todos with titles and descriptions.
+   - Add tags and set priorities (High, Medium, Low) for todos.
+   - Edit existing todos to update their details.
+   - Delete todos when they are no longer needed.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+2. **Todo Details**
+   - Users can click on a todo to view its detailed information, including tags, priority, notes, and assigned users.
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+3. **List View Features**
+   - Display all todos with essential information in a user-friendly list format.
+   - Implement pagination for efficient navigation (either through infinite scroll or numbered pagination).
+   - Filter todos based on tags, priority, or assigned users.
+   - Sort todos by creation date, priority, and other relevant criteria.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+4. **Data Export**
+   - Provide functionality to export all todos of a user in either JSON or CSV format for external use.
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Additional Features and Improvements
+- A modal has been implemented to allow users to add notes to a todo by clicking an icon next to the todo.
+- Sorting and filtering capabilities have been enhanced to include priority, improving the overall usability of the application.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+## Future Enhancements
+- Explore the possibility of integrating notifications for upcoming deadlines or reminders related to todos.
+- Implementing unit tests and integration tests to verify the functionality of the application
